@@ -1,6 +1,9 @@
 <script setup>
-import OptionsAPI from './components/OptionsAPI.vue'
-import CompositionAPI from './components/CompositionAPI.vue'
+// import OptionsAPI from './lectures/compareAPIs/OptionsAPI.vue'
+// import CompositionAPI from './lectures/compareAPIs/CompositionAPI.vue'
+import ReactivityAPI from './lectures/aboutCompositionAPIs/ReactivityAPI.vue'
+import LifecycleHooks from './lectures/aboutCompositionAPIs/LifecycleHooksAPI.vue'
+import SetupAPI from './lectures/aboutCompositionAPIs/SetupAPI.vue'
 </script>
 
 <template>
@@ -8,8 +11,11 @@ import CompositionAPI from './components/CompositionAPI.vue'
     <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <OptionsAPI />
-      <CompositionAPI />
+      <!-- <OptionsAPI />
+      <CompositionAPI /> -->
+      <ReactivityAPI />
+      <LifecycleHooks />
+      <SetupAPI />
     </div>
   </header>
 
