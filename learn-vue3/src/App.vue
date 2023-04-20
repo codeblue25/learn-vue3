@@ -1,8 +1,11 @@
-<script setup></script>
+<script setup>
+import TemplateLiteral from './lectures/aboutCompositionAPIs/TemplateLiteral.vue'
+</script>
 
 <template>
   <div>
-    <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+    <TemplateLiteral />
+    <!-- <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Navbar</a>
         <button
@@ -135,7 +138,7 @@
           </div>
         </div>
       </div>
-    </main>
+    </main> -->
   </div>
 </template>
 
