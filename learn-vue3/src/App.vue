@@ -1,10 +1,10 @@
 <script setup>
-import TemplateLiteral from './lectures/aboutCompositionAPIs/TemplateLiteral.vue'
+import ReactivityAPI from './lectures/aboutCompositionAPIs/ReactivityAPI.vue'
 </script>
 
 <template>
   <div>
-    <TemplateLiteral />
+    <ReactivityAPI />
     <!-- <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Navbar</a>
