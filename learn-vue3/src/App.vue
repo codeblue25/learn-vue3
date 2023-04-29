@@ -1,10 +1,12 @@
 <script setup>
-import ReactivityAPI from './lectures/aboutCompositionAPIs/ReactivityAPI.vue'
+import ComputedProperties from './lectures/aboutVueProperties/ClassAndStyleBindings.vue'
+// import ReactivityAPI from './lectures/aboutCompositionAPIs/ReactivityAPI.vue'
 </script>
 
 <template>
   <div>
-    <ReactivityAPI />
+    <ComputedProperties />
+    <!-- <ReactivityAPI /> -->
     <!-- <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Navbar</a>
