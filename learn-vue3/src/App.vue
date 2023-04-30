@@ -1,11 +1,12 @@
 <script setup>
-import ComputedProperties from './lectures/aboutVueProperties/ClassAndStyleBindings.vue'
+// import ClassBinding from './lectures/aboutVueProperties/ClassBinding.vue'
+import StyleBinding from './lectures/aboutVueProperties/StyleBinding.vue'
 // import ReactivityAPI from './lectures/aboutCompositionAPIs/ReactivityAPI.vue'
 </script>
 
 <template>
   <div>
-    <ComputedProperties />
+    <StyleBinding />
     <!-- <ReactivityAPI /> -->
     <!-- <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
       <div class="container-fluid">
