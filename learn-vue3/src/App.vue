@@ -1,12 +1,11 @@
 <script setup>
-// import ClassBinding from './lectures/aboutVueProperties/ClassBinding.vue'
-import StyleBinding from './lectures/aboutVueProperties/StyleBinding.vue'
+import ForDirective from './lectures/aboutVueProperties/ForDirective.vue'
 // import ReactivityAPI from './lectures/aboutCompositionAPIs/ReactivityAPI.vue'
 </script>
 
 <template>
   <div>
-    <StyleBinding />
+    <ForDirective />
     <!-- <ReactivityAPI /> -->
     <!-- <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
       <div class="container-fluid">
