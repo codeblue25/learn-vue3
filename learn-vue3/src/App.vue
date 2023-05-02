@@ -1,11 +1,11 @@
 <script setup>
-import ForDirective from './lectures/aboutVueProperties/ForDirective.vue'
+import VueDirectives from './lectures/aboutVueProperties/VueDirectives.vue'
 // import ReactivityAPI from './lectures/aboutCompositionAPIs/ReactivityAPI.vue'
 </script>
 
 <template>
   <div>
-    <ForDirective />
+    <VueDirectives />
     <!-- <ReactivityAPI /> -->
     <!-- <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
       <div class="container-fluid">
