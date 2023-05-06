@@ -1,11 +1,11 @@
 <script setup>
-import VueDirectives from './lectures/aboutVueProperties/VueDirectives.vue'
+import EventModifiers from './lectures/aboutVueProperties/EventModifiers.vue'
 // import ReactivityAPI from './lectures/aboutCompositionAPIs/ReactivityAPI.vue'
 </script>
 
 <template>
   <div>
-    <VueDirectives />
+    <EventModifiers />
     <!-- <ReactivityAPI /> -->
     <!-- <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
       <div class="container-fluid">
