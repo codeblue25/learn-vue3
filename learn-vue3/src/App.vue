@@ -1,5 +1,5 @@
 <script setup>
-import EventModifiers from './lectures/aboutVueProperties/EventModifiers.vue'
+import EventModifiers from './lectures/aboutVueProperties/TwoWayBinding.vue'
 // import ReactivityAPI from './lectures/aboutCompositionAPIs/ReactivityAPI.vue'
 </script>
 
