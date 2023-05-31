@@ -10,9 +10,11 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.10.5",
-    "vue": "^3.3.2"
+    "vue": "^3.3.2",
+    "vue-router": "^4.2.2"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.2.0",
