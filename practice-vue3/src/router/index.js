@@ -21,6 +21,7 @@ const routes = [
   },
   {
     path: '/posts',
+    name: 'PostList',
     component: PostListView,
   },
   {
@@ -29,10 +30,12 @@ const routes = [
   },
   {
     path: '/posts/:postId',
+    name: 'PostDetail',
     component: PostDetailView,
   },
   {
     path: '/posts/:postId/edit',
+    name: 'PostEdit',
     component: PostEditView,
   },
 ];
