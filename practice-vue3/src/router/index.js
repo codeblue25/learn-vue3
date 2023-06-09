@@ -40,6 +40,7 @@ const routes = [
     path: '/posts/:postId',
     name: 'PostDetail',
     component: PostDetailView,
+    props: true, // 파라미터(id)가 PostDetailView에 props로 전달됨
   },
   {
     path: '/posts/:postId/edit',
