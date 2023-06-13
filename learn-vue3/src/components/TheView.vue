@@ -1,6 +1,8 @@
 <template>
   <main>
     <div class="container py-4">
+      <PostCreate @create-post="createPost"></PostCreate>
+      <hr class="my-4" />
       <div class="row g-3">
         <div class="col col-4">
           <AppCard title="제목1" contents="내용1"></AppCard>
@@ -24,10 +26,12 @@
 
 <script>
 import AppCard from '@/components/AppCard.vue'
+import PostCreate from '@/components/PostCreate.vue'
 import { reactive } from 'vue'
 export default {
   components: {
-    AppCard
+    AppCard,
+    PostCreate
   },
   setup() {
     const post = reactive({
@@ -41,7 +45,12 @@ export default {
       { id: 5, title: '제목5', contents: '내용5' },
       { id: 6, title: '제목6', contents: '내용6' }
     ])
-    return { post, posts }
+
+    const createPost = (newPost) => {
+      console.log('newPost: ', newPost)
+      posts.push(newPost)
+    }
+    return { post, posts, createPost }
   }
 }
 </script>
