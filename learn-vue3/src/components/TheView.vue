@@ -20,6 +20,16 @@
           ></AppCard>
         </div>
       </div>
+
+      <hr class="my-4" />
+
+      <LabelInput
+        v-model="username"
+        label="이름"
+        class="parent-classa"
+        style="color: red"
+        id="parent-id"
+      ></LabelInput>
     </div>
   </main>
 </template>
@@ -27,11 +37,13 @@
 <script>
 import AppCard from '@/components/AppCard.vue'
 import PostCreate from '@/components/PostCreate.vue'
-import { reactive } from 'vue'
+import LabelInput from '@/components/LabelInput.vue'
+import { reactive, ref } from 'vue'
 export default {
   components: {
     AppCard,
-    PostCreate
+    PostCreate,
+    LabelInput
   },
   setup() {
     const post = reactive({
@@ -45,12 +57,14 @@ export default {
       { id: 5, title: '제목5', contents: '내용5' },
       { id: 6, title: '제목6', contents: '내용6' }
     ])
-
     const createPost = (newPost) => {
       console.log('newPost: ', newPost)
       posts.push(newPost)
     }
-    return { post, posts, createPost }
+
+    const username = ref('')
+
+    return { post, posts, createPost, username }
   }
 }
 </script>
