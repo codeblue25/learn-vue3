@@ -76,9 +76,18 @@ const routes = [
   },
 ];
 
+/**
+ * history mode (createWebHistory)
+ * 페이지를 다시 로드 하지않고 URl을 탐색할 수 있음
+ *
+ * hash mode (createWebHashHistory)
+ * URL이 변경될 때 페이지가 다시 로드 되지 않음
+ * SEO에 취약함
+ */
 const router = createRouter({
   history: createWebHistory('/'),
-  routes: routes,
+  // history: createWebHashHistory('/'),
+  routes,
 });
 
 export default router;
