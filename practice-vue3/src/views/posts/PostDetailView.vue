@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h2>{{ form.title }}</h2>
-    <p>{{ form.contents }}</p>
-    <p class="text-muted">{{ form.createdAt }}</p>
+    <h2>{{ post.title }}</h2>
+    <p>{{ post.contents }}</p>
+    <p class="text-muted">{{ post.createdAt }}</p>
     <hr class="my-4" />
     <div class="row g-2">
       <div class="col-auto">
@@ -53,17 +53,17 @@ const goEditPage = () => {
  * ref
  * 장) 객체 할당 가능
  * 장) 일관성 유지 가능
- * 단) form.value.title, form.value.contents
+ * 단) post.value.title, post.value.contents
  *
  * reactive
- * 장) form.title, form.contents
+ * 장) post.title, post.contents
  * 단) 객체 할당 불가능
  * 단) 일관성 유지 불가능
  */
-const form = ref({});
-const fetchPost = () => {
-  const data = getPostById(props.postId);
-  form.value = { ...data };
+const post = ref({});
+const fetchPost = async () => {
+  const { data } = await getPostById(props.postId);
+  post.value = { ...data };
 };
 fetchPost();
 </script>

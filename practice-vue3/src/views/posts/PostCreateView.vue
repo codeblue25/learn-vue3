@@ -2,14 +2,24 @@
   <div>
     <h2>게시글 등록</h2>
     <hr class="my-4" />
-    <form @submit.prevent>
+    <form @submit.prevent="save">
       <div class="mb-3">
         <label for="title" class="form-label">제목</label>
-        <input type="text" class="form-control" id="title" />
+        <input
+          v-model="form.title"
+          type="text"
+          class="form-control"
+          id="title"
+        />
       </div>
       <div class="mb-3">
         <label for="contents" class="form-label">내용</label>
-        <textarea class="form-control" id="contents" rows="3"></textarea>
+        <textarea
+          v-model="form.contents"
+          class="form-control"
+          id="contents"
+          rows="3"
+        ></textarea>
       </div>
       <div class="pt-4">
         <button
@@ -27,6 +37,8 @@
 
 <script setup>
 import { useRouter } from 'vue-router';
+import { ref } from 'vue';
+import { createPost } from '@/api/posts';
 
 const router = useRouter();
 
@@ -34,6 +46,23 @@ const goListPage = () => {
   router.push({
     name: 'PostList',
   });
+};
+
+const form = ref({
+  title: null,
+  contents: null,
+});
+
+const save = () => {
+  try {
+    createPost({
+      ...form.value,
+      createdAt: new Date(),
+    });
+    goListPage();
+  } catch (err) {
+    console.log(err);
+  }
 };
 </script>
 
