@@ -21,7 +21,7 @@
         </button>
       </div>
       <div class="col-auto">
-        <button class="btn btn-outline-danger">삭제</button>
+        <button class="btn btn-outline-danger" @click="remove">삭제</button>
       </div>
     </div>
     <!-- <p>params: {{ $route.params }}</p>
@@ -33,7 +33,7 @@
 <script setup>
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-import { getPostById } from '@/api/posts';
+import { getPostById, deletePost } from '@/api/posts';
 
 const props = defineProps({
   postId: String,
@@ -62,10 +62,31 @@ const goEditPage = () => {
  */
 const post = ref({});
 const fetchPost = async () => {
-  const { data } = await getPostById(props.postId);
-  post.value = { ...data };
+  try {
+    const { data } = await getPostById(props.postId);
+    setPost(data);
+  } catch (err) {
+    console.log(err);
+  }
+};
+const setPost = ({ title, contents, createdAt }) => {
+  (post.value.title = title),
+    (post.value.contents = contents),
+    (post.value.createdAt = createdAt);
 };
 fetchPost();
+
+const remove = async () => {
+  try {
+    if (!confirm('삭제 하시겠습니까 ? ')) {
+      return;
+    }
+    await deletePost(props.postId);
+    goListPage();
+  } catch (err) {
+    console.log(err);
+  }
+};
 </script>
 
 <style lang="scss" scoped></style>
