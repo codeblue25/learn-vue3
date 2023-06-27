@@ -1,6 +1,20 @@
 <template>
   <div>
     <h2>게시글 목록</h2>
+    <form @submit.prevent>
+      <div class="row g-3">
+        <div class="col">
+          <input v-model="params.title_like" type="text" class="form-control" />
+        </div>
+        <div class="col-3">
+          <select v-model="params._limit" class="form-select">
+            <option value="3">3개씩 보기</option>
+            <option value="6">6개씩 보기</option>
+            <option value="9">9개씩 보기</option>
+          </select>
+        </div>
+      </div>
+    </form>
     <hr class="my-4" />
     <div class="row g-3">
       <div v-for="post in posts" :key="post.id" class="col-4">
@@ -72,6 +86,7 @@ const params = ref({
   _order: 'desc',
   _limit: 6,
   _page: 1,
+  title_like: '',
 });
 
 const totalCount = ref(0);
