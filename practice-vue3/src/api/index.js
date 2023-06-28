@@ -10,4 +10,6 @@ function create(baseURL, options) {
   return instance;
 }
 
-export const posts = create(`http://localhost:3000/posts/`);
+export const posts = create(`${import.meta.env.VITE_APP_API_URL}posts/`);
+// development: http://localhost:3000/
+// production: http://localhost:3001/
