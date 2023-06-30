@@ -2,20 +2,10 @@
   <div>
     <h2>게시글 목록</h2>
     <hr class="my-4" />
-    <form @submit.prevent>
-      <div class="row g-3">
-        <div class="col">
-          <input v-model="params.title_like" type="text" class="form-control" />
-        </div>
-        <div class="col-3">
-          <select v-model="params._limit" class="form-select">
-            <option value="3">3개씩 보기</option>
-            <option value="6">6개씩 보기</option>
-            <option value="9">9개씩 보기</option>
-          </select>
-        </div>
-      </div>
-    </form>
+    <PostFilter
+      v-model:title="params.title_like"
+      v-model:limit="params._limit"
+    ></PostFilter>
     <div class="row g-3 mt-3">
       <div v-for="post in posts" :key="post.id" class="col-4">
         <PostItem
@@ -42,9 +32,11 @@
 
 <script setup>
 import PostItem from '@/components/posts/PostItem.vue';
+import PostFilter from '@/components/posts/PostFilter.vue';
 import AppCard from '@/components/AppCard.vue';
 import AppPagination from '@/components/AppPagination.vue';
 import PostDetailView from '@/views/posts/PostDetailView.vue';
+
 import { getPosts } from '@/api/posts';
 import { ref, watchEffect } from 'vue';
 import { useRouter } from 'vue-router';
