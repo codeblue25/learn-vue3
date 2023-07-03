@@ -18,11 +18,7 @@
         <button class="btn btn-outline-primary">수정</button>
       </template>
     </PostForm>
-    <AppAlert
-      :show="showAlert"
-      :message="alertMessage"
-      :type="alertType"
-    ></AppAlert>
+    <AppAlert :items="alerts"></AppAlert>
   </div>
 </template>
 
@@ -66,9 +62,9 @@ fetchForm();
 const edit = async () => {
   try {
     await updatePost(postId, { ...form.value });
-    vAlert('수정이 완료되었습니다 !', 'success');
+    vAlert('수정이 완료되었습니다 ! ', 'success');
     setTimeout(() => {
-      showAlert.value = false;
+      alerts.value.shift();
     }, 2000);
     // goDetailPage();
   } catch (err) {
@@ -76,13 +72,9 @@ const edit = async () => {
   }
 };
 
-const showAlert = ref(false);
-const alertMessage = ref('');
-const alertType = ref('error');
+const alerts = ref([]);
 const vAlert = (message, type) => {
-  showAlert.value = true;
-  alertMessage.value = message;
-  alertType.value = type;
+  alerts.value.push({ message, type });
 };
 </script>
 
