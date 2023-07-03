@@ -1,7 +1,9 @@
 <template>
-  <div v-if="show" class="alert app-alert" :class="styleClass" role="alert">
-    {{ message }}
-  </div>
+  <Transition name="alert">
+    <div v-if="show" class="alert app-alert" :class="styleClass" role="alert">
+      {{ message }}
+    </div>
+  </Transition>
 </template>
 
 <script setup>
@@ -32,5 +34,19 @@ const styleClass = computed(() =>
   position: fixed;
   top: 66px;
   right: 10px;
+}
+.alert-enter-from,
+.alert-leave-to {
+  opacity: 0;
+  transform: translateY(-30px);
+}
+.alert-enter-active,
+.alert-leave-active {
+  transition: all 0.5s ease;
+}
+.alert-enter-to,
+.alert-leave-from {
+  opacity: 1;
+  transform: translateY(0);
 }
 </style>
