@@ -20,12 +20,14 @@
       </div>
     </div>
 
-    <PostModal
-      v-model="show"
-      :title="modalTitle"
-      :contents="modalContents"
-      :createdAt="modalCreatedAt"
-    ></PostModal>
+    <Teleport to="#modal">
+      <PostModal
+        v-model="show"
+        :title="modalTitle"
+        :contents="modalContents"
+        :createdAt="modalCreatedAt"
+      ></PostModal>
+    </Teleport>
 
     <AppPagination
       :current-page="params._page"
