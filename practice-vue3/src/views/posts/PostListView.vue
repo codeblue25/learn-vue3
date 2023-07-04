@@ -2,10 +2,12 @@
   <div>
     <h2>게시글 목록</h2>
     <hr class="my-4" />
+
     <PostFilter
       v-model:title="params.title_like"
       v-model:limit="params._limit"
     ></PostFilter>
+
     <div class="row g-3 mt-3">
       <div v-for="post in posts" :key="post.id" class="col-4">
         <PostItem
@@ -17,28 +19,20 @@
         ></PostItem>
       </div>
     </div>
+
+    <PostModal
+      v-model="show"
+      :title="modalTitle"
+      :contents="modalContents"
+      :createdAt="modalCreatedAt"
+    ></PostModal>
+
     <AppPagination
       :current-page="params._page"
       :page-count="pageCount"
       @page="page => (params._page = page)"
     ></AppPagination>
-    <AppModal :show="show" title="게시글" @close="closeModal">
-      <template #default>
-        <div class="row g-3">
-          <div class="col-3 text-muted">제목</div>
-          <div class="col-9">{{ modalTitle }}</div>
-          <div class="col-3 text-muted">내용</div>
-          <div class="col-9">{{ modalContents }}</div>
-          <div class="col-3 text-muted">등록일</div>
-          <div class="col-9">{{ modalCreatedAt }}</div>
-        </div>
-      </template>
-      <template #actions>
-        <button type="button" class="btn btn-secondary" @click="closeModal">
-          닫기
-        </button>
-      </template>
-    </AppModal>
+
     <template v-if="posts && posts.length > 0">
       <hr class="my-5" />
       <AppCard>
@@ -51,9 +45,11 @@
 <script setup>
 import PostItem from '@/components/posts/PostItem.vue';
 import PostFilter from '@/components/posts/PostFilter.vue';
+import PostModal from '@/components/posts/PostModal.vue';
+
 import AppCard from '@/components/AppCard.vue';
 import AppPagination from '@/components/AppPagination.vue';
-import AppModal from '@/components/AppModal.vue';
+
 import PostDetailView from '@/views/posts/PostDetailView.vue';
 
 import { getPosts } from '@/api/posts';
@@ -106,9 +102,6 @@ const openModal = ({ title, contents, createdAt }) => {
   modalTitle.value = title;
   modalContents.value = contents;
   modalCreatedAt.value = createdAt;
-};
-const closeModal = () => {
-  show.value = false;
 };
 </script>
 
