@@ -2,7 +2,9 @@
   <main>
     <div class="container py-4">
       <PostCreate @create-post="createPost"></PostCreate>
+
       <hr class="my-4" />
+
       <div class="row g-3">
         <div class="col col-4">
           <AppCard title="제목1" contents="내용1"></AppCard>
@@ -23,13 +25,9 @@
 
       <hr class="my-4" />
 
-      <LabelInput
-        v-model="username"
-        label="이름"
-        class="parent-classa"
-        style="color: red"
-        id="parent-id"
-      ></LabelInput>
+      <LabelInput v-model="username" label="이름"></LabelInput>
+      <LabelTitle v-model:title="username" label="제목"></LabelTitle>
+      <Username v-model:firstname="firstname" v-model:lastname="lastname"></Username>
     </div>
   </main>
 </template>
@@ -38,12 +36,16 @@
 import AppCard from '@/components/AppCard.vue'
 import PostCreate from '@/components/PostCreate.vue'
 import LabelInput from '@/components/LabelInput.vue'
+import LabelTitle from '@/components/LabelTitle.vue'
+import Username from './Username.vue'
 import { reactive, ref } from 'vue'
 export default {
   components: {
     AppCard,
     PostCreate,
-    LabelInput
+    LabelInput,
+    LabelTitle,
+    Username
   },
   setup() {
     const post = reactive({
@@ -58,13 +60,14 @@ export default {
       { id: 6, title: '제목6', contents: '내용6' }
     ])
     const createPost = (newPost) => {
-      console.log('newPost: ', newPost)
       posts.push(newPost)
     }
 
     const username = ref('')
+    const firstname = ref('')
+    const lastname = ref('')
 
-    return { post, posts, createPost, username }
+    return { post, posts, createPost, username, firstname, lastname }
   }
 }
 </script>

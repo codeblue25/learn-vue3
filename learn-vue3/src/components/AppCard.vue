@@ -45,7 +45,6 @@ export default {
   },
   emits: ['toggleLike'],
   setup(props, context) {
-    console.log(props.title)
     const isLikeClass = computed(() => (props.isLike ? 'btn-danger' : 'btn-outline-danger'))
     const typeName = computed(() => (props.type === 'news' ? '뉴스' : '공지사항'))
     const toggleLike = () => {
