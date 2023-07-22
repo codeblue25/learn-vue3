@@ -7,12 +7,16 @@ import router from './router';
 import person from './plugins/person';
 
 import globalComponents from '@/plugins/global-components';
+import globalDirectives from '@/plugins/global-directives';
+// import focus from '@/directives/focus';
 
 const app = createApp(App);
 
 app.use(person, { name: '최선영' });
 
 app.use(globalComponents);
+app.use(globalDirectives);
+// app.directive('focus', focus);
 
 app.use(router);
 app.mount('#app');
