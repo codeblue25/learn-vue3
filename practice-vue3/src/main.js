@@ -4,7 +4,18 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
 
-createApp(App).use(router).mount('#app');
+import funcPlugins from './plugins/func';
+import objPlugins from './plugins/obj';
+import person from './plugins/person';
+
+const app = createApp(App);
+
+app.use(funcPlugins);
+app.use(objPlugins, { name: 'sychoi' });
+app.use(person, { name: '최선영' });
+
+app.use(router);
+app.mount('#app');
 import 'bootstrap/dist/js/bootstrap.js';
 
 // console.log('MODE: ', import.meta.env.MODE);
