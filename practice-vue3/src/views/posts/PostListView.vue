@@ -49,9 +49,6 @@ import PostItem from '@/components/posts/PostItem.vue';
 import PostFilter from '@/components/posts/PostFilter.vue';
 import PostModal from '@/components/posts/PostModal.vue';
 
-import AppCard from '@/components/AppCard.vue';
-import AppPagination from '@/components/AppPagination.vue';
-
 import PostDetailView from '@/views/posts/PostDetailView.vue';
 
 import { getPosts } from '@/api/posts';
