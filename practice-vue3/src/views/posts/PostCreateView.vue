@@ -25,7 +25,6 @@
 <script setup>
 import { useRouter } from 'vue-router';
 import { ref } from 'vue';
-import { createPost } from '@/api/posts';
 
 import PostForm from '@/components/posts/PostForm.vue';
 
@@ -44,15 +43,6 @@ const form = ref({
 
 const save = () => {
   try {
-    const date = new Date();
-    const year = date.getFullYear();
-    const month = ('0' + (date.getMonth() + 1)).slice(-2);
-    const day = ('0' + date.getDate()).slice(-2);
-    const dateStr = `${year}-${month}-${day}`;
-    createPost({
-      ...form.value,
-      createdAt: dateStr,
-    });
     goListPage();
   } catch (err) {
     console.log(err);
